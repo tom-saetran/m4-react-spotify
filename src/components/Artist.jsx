@@ -3,108 +3,58 @@ import React from "react"
 class Artist extends React.Component {
     render() {
         return (
-            <div id="artists" class="container-fluid d-none p-0">
-                <div>
-                    <div class="container-fluid no-margin banner">
-                        <div id="main" class="d-flex flex-column align-items-center justify-content-end">
-                            <img class="bg-image" src="./assets/banner.jpg" alt="" />
-                            <h6 class="text-muted mt-5">33,000,575 MONTHLY LISTENERS</h6>
-                            <h1>Queen</h1>
-
-                            <div class="buttons mt-3">
-                                <button type="button" class="btn btn-sm btn1">
-                                    PLAY
-                                </button>
-                                <button type="button" class="btn btn-secondary btn-sm btn2">
-                                    FOLLOW
-                                </button>
-                                <i class="fas fa-ellipsis-h btn3"></i>
-                            </div>
-
-                            <ul class="d-flex mt-5 list">
-                                <li class="px-4">
-                                    <a onclick="underline1()" href="/">
-                                        OVERVIEW
-                                    </a>
-                                </li>
-                                <li class="px-4">
-                                    <a onclick="underline1()" href="/">
-                                        RELATED ARTISTS
-                                    </a>
-                                </li>
-                                <li class="px-4">
-                                    <a onclick="underline1()" href="/">
-                                        ABOUT
-                                    </a>
-                                </li>
-                            </ul>
+            <div class="col-12 mainPage">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-10 mt-5">
+                        <h2 class="titleMain">STING</h2>
+                        <div id="followers">1154386 followers</div>
+                        <div class="d-flex justify-content-center" id="button-container">
+                            <button class="btn btn-success mr-2 mainButton" id="playButton">
+                                PLAY
+                            </button>
+                            <button class="btn btn-outline-light mainButton" id="followButton">
+                                FOLLOW
+                            </button>
                         </div>
                     </div>
-
-                    <div class="container">
-                        <h3 class="mt-4 mb-2">Albums</h3>
-
-                        <div class="row" id="first">
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/1.jfif" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Bohemian Rhapsody (The Original Soundtrack)</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/2.jfif" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>On Air</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/3.jfif" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>A Night At The Odeon</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/4.jfif" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Live At The Rainbow</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/5.jfif" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Live At The Rainbow (Deluxe)</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/7.jpg" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Hungarian Rhapsody (Live In Budapest/1986</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Album Name</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Album Name</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Album Name </h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Album Name</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Album Name</h6>
-                                <span class="text-muted">Queen</span>
-                            </div>
-                            <div class="col-sm-6 col-md-2 album card-body">
-                                <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="" />
-                                <h6>Album Name</h6>
-                                <span class="text-muted">Queen</span>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-10 col-md-10 col-lg-10 p-0">
+                        <div class="mt-4 d-flex justify-content-start">
+                            <h2 class="text-white font-weight-bold">Tracks</h2>
+                        </div>
+                        <div class="pt-5 mb-5">
+                            <div class="row" id="apiLoaded">
+                                <div class="col-sm-auto col-md-auto text-center mb-5">
+                                    <a href="/album_page.html">
+                                        <img class="img-fluid" src="https://cdns-images.dzcdn.net/images/cover/e2491c22fb19c154e46b449ff7aa7a62/250x250-000000-80-0-0.jpg" alt="1" />
+                                    </a>
+                                    <p>
+                                        <a href="/"> Track: "Shape Of My Hear..." </a>
+                                        <br />
+                                        <a href="/"> Album: "Ten Summoner's T..." </a>
+                                    </p>
+                                </div>
+                                <div class="col-sm-auto col-md-auto text-center mb-5">
+                                    <a href="/album_page.html">
+                                        <img class="img-fluid" src="https://cdns-images.dzcdn.net/images/cover/43216748bbeee4aa12f3e2407599a4ea/250x250-000000-80-0-0.jpg" alt="1" />
+                                    </a>
+                                    <p>
+                                        <a href="/"> Track: "Russians" </a>
+                                        <br />
+                                        <a href="/"> Album: "Fields Of Gold -..." </a>
+                                    </p>
+                                </div>
+                                <div class="col-sm-auto col-md-auto text-center mb-5">
+                                    <a href="/album_page.html">
+                                        <img class="img-fluid" src="https://cdns-images.dzcdn.net/images/cover/b868c72b8514a61a7a34e0495c5584e1/250x250-000000-80-0-0.jpg" alt="1" />
+                                    </a>
+                                    <p>
+                                        <a href="/"> Track: "Every Breath You..." </a>
+                                        <br />
+                                        <a href="/"> Album: "My Songs (Deluxe..." </a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
