@@ -16,8 +16,8 @@ class App extends React.Component {
                 <NavLeft />
                 <Switch>
                     <Route component={Home} exact path="/" />
-                    <Route component={Artist} exact path="/Artist/:id" />
-                    <Route component={Album} exact path="/Album/:id" />
+                    <Route component={Artist} exact path="/artist/:id" />
+                    <Route component={Album} exact path="/album/:id" />
                     <Route component={PageNotFound} />
                 </Switch>
                 <MediaControl />
