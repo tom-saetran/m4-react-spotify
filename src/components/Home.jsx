@@ -6,6 +6,8 @@ import { faCoffee } from "@fortawesome/free-solid-svg-icons"
 library.add(faCoffee)
 
 class Home extends React.Component {
+    state = {}
+
     render() {
         return (
             <div className="col-12 mainPage">
