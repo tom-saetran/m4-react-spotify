@@ -7,10 +7,10 @@ class MediaControl extends React.Component {
                 <div className="row flex-nowrap justify-content-between playBar py-3">
                     <div className="col-3">
                         <div className="playerArtistInfo d-flex">
-                            <img alt="" />
+                            <img src={this.props.nowPlaying.albumUrl} alt="" width="50px" className="img-fluid" />
                             <div className="d-flex flex-column pl-2">
-                                <h6>...</h6>
-                                <p>...</p>
+                                <h6 className="pl-3">{this.props.nowPlaying.artist}</h6>
+                                <p className="pl-3">{this.props.nowPlaying.song}</p>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ class MediaControl extends React.Component {
                     <div className="col-auto mr-3">
                         <div className="playerVolume">
                             <i className="fa fa-volume-up" onClick={handleChangeVolume}></i>
-                            <input type="range" value="50" onChange="" />
+                            <input type="range" value="50" onChange={handleChangeVolume} />
                         </div>
                     </div>
                 </div>

@@ -41,12 +41,17 @@ class NavLeft extends React.Component {
                     </div>
 
                     <div className="nav-btn">
-                        <button className="btn signup-btn" type="button">
-                            Sign Up
-                        </button>
-                        <button className="btn login-btn" type="button">
-                            Login
-                        </button>
+                        <div className={this.props.loggedInUser ? "d-none" : ""}>
+                            <button className="btn signup-btn">Sign Up</button>
+                            <button className="btn login-btn">Login</button>
+                        </div>
+                        <div className={this.props.loggedInUser ? "d-flex" : "d-none"}>
+                            <img src={this.props.loggedInUser.useravatar} alt="" width="50px" className="img-fluid" />
+                            <div>
+                                <h6 className="text-muted">{this.props.loggedInUser.username}</h6>
+                                <p className={this.props.loggedInUser.premium ? "text-success" : "d-none"}>Premium User</p>
+                            </div>
+                        </div>
                         <a href="/">Cookie Policy</a> |<a href="/"> Privacy</a>
                     </div>
                 </nav>

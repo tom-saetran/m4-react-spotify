@@ -11,25 +11,133 @@ import PageNotFound from "./components/PageNotFound"
 
 class App extends React.Component {
     state = {
-        nowPlaying: null,
-        loggedInUser: null
+        nowPlaying: {
+            artist: "Demo Artist",
+            album: "Demo Album",
+            albumUrl: "/images/420.png",
+            song: "Demo Song Title"
+        },
+        nextTrack: {
+            track: null
+        },
+        prevTrack: {
+            track: null
+        },
+        loggedInUser: {
+            username: "Tom",
+            userquote: "Buy stocks!",
+            useravatar: "/images/420.png",
+            premium: true
+        }
     }
 
-    setNowPlaying = id => {
-        console.log(id)
+    setNowPlayingState = song => {
+        console.log(song)
+        // set state nowPlaying given the song id
+    }
+
+    doStartPlay = () => {
+        //
+    }
+
+    doStopPlay = () => {
+        //
+    }
+
+    doNextTrack = () => {
+        //
+    }
+
+    doPrevTrack = () => {
+        //
+    }
+
+    getFromSearch = async query => {
+        let results
+        try {
+            results = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + query)
+            results = await results.json()
+        } catch (error) {
+            console.error(error)
+            return null
+        }
+        return results
+    }
+
+    getArtistInfoFromID = async id => {
+        let results
+        try {
+            results = await fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id)
+            results = await results.json()
+        } catch (error) {
+            console.error(error)
+            return null
+        }
+        return results
+    }
+
+    getAlbumInfoFromID = async id => {
+        let results
+        try {
+            results = await fetch("https://striveschool-api.herokuapp.com/api/deezer/album/" + id)
+            results = await results.json()
+        } catch (error) {
+            console.error(error)
+            return null
+        }
+        return results
     }
 
     render() {
         return (
             <Router>
-                <NavLeft target={this.state.loggedInUser} />
+                <Route
+                    render={routerProps => (
+                        <NavLeft
+                            search={query => {
+                                this.getFromSearch(query)
+                            }}
+                            nowPlaying={this.state.nowPlaying}
+                            setNowPlaying={id => this.setNowPlaying(id)}
+                            loggedInUser={this.state.loggedInUser}
+                            {...routerProps}
+                        />
+                    )}
+                />
                 <Switch>
-                    <Route render={routerProps => <Home setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/" />
-                    <Route render={routerProps => <Artist setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/artist/:id" />
-                    <Route render={routerProps => <Album setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/album/:id" />
+                    <Route render={routerProps => <Home nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/" />
+                    <Route
+                        render={routerProps => (
+                            <Artist
+                                getData={id => {
+                                    this.getArtistInfoFromID(id)
+                                }}
+                                nowPlaying={this.state.nowPlaying}
+                                setNowPlaying={id => this.setNowPlaying(id)}
+                                {...routerProps}
+                            />
+                        )}
+                        exact
+                        path="/artist/:id"
+                    />
+                    <Route
+                        render={routerProps => (
+                            <Album
+                                getData={id => {
+                                    this.getAlbumInfoFromID(id)
+                                }}
+                                nowPlaying={this.state.nowPlaying}
+                                setNowPlaying={id => this.setNowPlaying(id)}
+                                {...routerProps}
+                            />
+                        )}
+                        exact
+                        path="/album/:id"
+                    />
                     <Route render={routerProps => <PageNotFound {...routerProps} />} />
                 </Switch>
-                <MediaControl setNowPlaying={id => this.setNowPlaying(id)} target={this.state.nowPlaying} />
+
+                <Route render={routerProps => <MediaControl nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} />
             </Router>
         )
     }
