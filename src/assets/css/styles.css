@@ -7,14 +7,11 @@ body {
 .navbar.fixed-left {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    bottom: 10vh;
     width: 230px;
     flex-flow: column nowrap;
     align-items: flex-start;
     background-color: black;
-    z-index: 1200;
 }
 
 .navbar.fixed-left .navbar-collapse .navbar-nav a {
@@ -82,12 +79,7 @@ ul {
 }
 
 /* BOTTOM PLAYER SECTION*/
-@media (min-width: 768px) {
-    .player {
-        left: 230px;
-        max-width: calc(100vw - 230px);
-    }
-}
+
 .bg-container {
     height: 5.5rem;
     background-color: #282828;
@@ -170,6 +162,10 @@ ul {
     -webkit-appearance: none;
     width: 0px;
     box-shadow: -200px 0 0 200px #007bff;
+}
+
+.text-dim {
+    color: #979ea3 !important;
 }
 
 /*MAIN PAGE SECTION*/

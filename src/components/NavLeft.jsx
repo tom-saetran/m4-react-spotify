@@ -57,7 +57,15 @@ class NavLeft extends React.Component {
                                 <p className={this.props.loggedInUser.premium ? "text-success" : "d-none"}>Premium User</p>
                             </div>
                         </div>
-                        <a href="/">Cookie Policy</a> |<a href="/"> Privacy</a>
+                        <span>
+                            <a className="nav-item nav-link" href="/">
+                                Cookie Policy
+                            </a>{" "}
+                            |{" "}
+                            <a className="nav-item nav-link" href="/">
+                                Privacy
+                            </a>
+                        </span>
                     </div>
                 </nav>
             </div>

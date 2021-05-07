@@ -18,14 +18,19 @@ class App extends React.Component {
             song: "Demo Song Title"
         },
         nextTrack: {
-            track: null
+            artist: "Demo Artist",
+            album: "Demo Album",
+            albumUrl: "/images/420.png",
+            song: " Next Demo Song Title"
         },
         prevTrack: {
-            track: null
+            artist: "Demo Artist",
+            album: "Demo Album",
+            albumUrl: "/images/420.png",
+            song: "Previous Demo Song Title"
         },
-        loggedInUser: {
+        user: {
             username: "Tom",
-            userquote: "Buy stocks!",
             useravatar: "/images/420.png",
             premium: true
         }
@@ -33,23 +38,7 @@ class App extends React.Component {
 
     setNowPlayingState = song => {
         console.log(song)
-        // set state nowPlaying given the song id
-    }
-
-    doStartPlay = () => {
-        //
-    }
-
-    doStopPlay = () => {
-        //
-    }
-
-    doNextTrack = () => {
-        //
-    }
-
-    doPrevTrack = () => {
-        //
+        // set state nowPlaying given the song currently audible(audible/paused)
     }
 
     getFromSearch = async query => {
@@ -99,7 +88,7 @@ class App extends React.Component {
                             }}
                             nowPlaying={this.state.nowPlaying}
                             setNowPlaying={id => this.setNowPlaying(id)}
-                            loggedInUser={this.state.loggedInUser}
+                            loggedInUser={this.state.user}
                             {...routerProps}
                         />
                     )}
