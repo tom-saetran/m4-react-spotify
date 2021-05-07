@@ -1,6 +1,22 @@
 import React from "react"
+import play from "../assets/images/play.png"
+import previous from "../assets/images/previous.png"
+import next from "../assets/images/next.png"
+import pause from "../assets/images/pause.png"
+import repeat from "../assets/images/repeat.png"
+import shuffle from "../assets/images/shuffle.png"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faCoffee } from "@fortawesome/free-solid-svg-icons"
+
+library.add(faCoffee)
 
 class MediaControl extends React.Component {
+    state = {
+        paused: false,
+        stopped: true
+    }
     render() {
         return (
             <div className="player container-fluid fixed-bottom bg-container pt-1">
@@ -17,19 +33,19 @@ class MediaControl extends React.Component {
                     <div className="col-6">
                         <div className="playerControls w-50 d-flex justify-content-between">
                             <a href="/">
-                                <img src="images/shuffle.png" alt="shuffle" />
+                                <img src={shuffle} alt="shuffle" />
                             </a>
                             <a href="/">
-                                <img src="images/previous.png" alt="previous" />
+                                <img src={previous} alt="previous" />
                             </a>
                             <a id="playBtn" href="/" onClick={handlePlay}>
-                                <img src="images/play.png" alt="play" />
+                                <img src={this.state.paused || this.state.stopped ? play : pause} alt="play" />
                             </a>
                             <a href="/">
-                                <img src="images/next.png" alt="next" />
+                                <img src={next} alt="next" />
                             </a>
                             <a href="/">
-                                <img src="images/repeat.png" alt="repeat" />
+                                <img src={repeat} alt="repeat" />
                             </a>
                         </div>
                         <div className="progressContainer d-flex align-items-center">

@@ -1,4 +1,5 @@
 import React from "react"
+import logo from "../assets/images/logo.png"
 
 class NavLeft extends React.Component {
     render() {
@@ -7,7 +8,7 @@ class NavLeft extends React.Component {
                 <nav className="navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between" id="sidebar">
                     <div className="nav-container">
                         <a className="navbar-brand" href="index.html">
-                            <img src="images/logo.png" alt="Spotify_Logo" width="131" height="40" />
+                            <img src={logo} alt="Spotify_Logo" width="131" height="40" />
                         </a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
