@@ -58,13 +58,7 @@ class NavLeft extends React.Component {
                             </div>
                         </div>
                         <span>
-                            <a className="nav-item nav-link" href="/">
-                                Cookie Policy
-                            </a>{" "}
-                            |{" "}
-                            <a className="nav-item nav-link" href="/">
-                                Privacy
-                            </a>
+                            <a href="/">Cookie Policy</a> | <a href="/">Privacy</a>
                         </span>
                     </div>
                 </nav>
