@@ -57,7 +57,7 @@ class MediaControl extends React.Component {
 export default MediaControl
 
 // ### Player functionality ###
-const audio = document.getElementsByTagName("audio")[0] // grabbing audio element
+const audio = document.createElement("audio") // grabbing audio element
 let playIcon = document.querySelector("img[alt='play']")
 let prevVolume = 0.5
 
