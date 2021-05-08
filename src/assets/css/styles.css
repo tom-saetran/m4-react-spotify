@@ -8,7 +8,7 @@ body {
     top: 0;
     left: 0;
     height: 90vh;
-    width: 16vw;
+    width: 260px;
     flex-flow: column nowrap;
     align-items: flex-start;
     background-color: black;
@@ -141,6 +141,10 @@ ul {
     max-width: fit-content !important;
 }
 
+.no-underline {
+    text-decoration: none;
+}
+
 /*MAIN PAGE SECTION*/
 
 .mainLinks {
@@ -163,7 +167,7 @@ ul {
 
 @media (min-width: 768px) {
     .mainPage {
-        padding-left: 16vw;
+        padding-left: 260px;
     }
 }
 

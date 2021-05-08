@@ -15,7 +15,7 @@ class Artist extends React.Component {
 
     render() {
         return (
-            <div className="col-12 mainPage">
+            <div className="mainPage">
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-10 col-lg-10 mt-5">
                         <h2 className="text-muted text-center">{this.state.artistData.name}</h2>

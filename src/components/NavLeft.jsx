@@ -1,5 +1,11 @@
 import React from "react"
 import logo from "../assets/images/logo.png"
+import Link from "react-router-dom/Link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faHome, faBook, faSearch } from "@fortawesome/free-solid-svg-icons"
+
+library.add(faHome, faBook, faSearch)
 
 class NavLeft extends React.Component {
     state = {
@@ -13,57 +19,76 @@ class NavLeft extends React.Component {
     render() {
         return (
             <div className="col-2">
-                <nav className="navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between" id="sidebar">
-                    <div className="nav-container">
-                        <a className="navbar-brand" href="index.html">
-                            <img src={logo} alt="logo" width="131" height="40" />
-                        </a>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div className="navbar-nav pt-3">
-                                <ul>
-                                    <li>
-                                        <a className="nav-item nav-link" href="index.html">
-                                            &nbsp; Home
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="nav-item nav-link" href="/">
-                                            <i className="fas fa-book-open fa-lg"></i>&nbsp; Your Library
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div className="input-group mt-3">
-                                            <input type="text" value={this.state.query} onChange={e => this.setState({ query: e.target.value })} className="form-control mb-2" id="searchField" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" />
-                                            <div className="input-group-append" style={{ marginBottom: "4%" }}>
-                                                <button className="btn btn-outline-secondary btn-sm" type="button" id="button-addon1" onClick={async () => this.setState({ result: await this.props.search(this.state.query) })}>
-                                                    GO
-                                                </button>
-                                            </div>
+                <nav className="navbar fixed-left justify-content-between">
+                    <div>
+                        <div className="d-flex justify-content-center">
+                            <Link to="/" className="pt-3 pb-4">
+                                <img src={logo} alt="logo" width="196px" />
+                            </Link>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <div className="input-group">
+                                        <input style={{ borderColor: "#666666", color: "#949494", backgroundColor: "#121212" }} type="text" value={this.state.query} className="form-control" onChange={e => this.setState({ query: e.target.value })} placeholder="Search" />
+                                        <div className="input-group-append">
+                                            <button className="btn btn-outline-secondary" type="button" onClick={async () => this.setState({ result: await this.props.search(this.state.query) })}>
+                                                <FontAwesomeIcon className="text-dim" icon="search" />
+                                            </button>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <Link to="/" className="nav-item nav-link text-dim">
+                                        <FontAwesomeIcon className="text-dim" icon="home" /> Home
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/library" className="nav-item nav-link text-dim">
+                                        <FontAwesomeIcon className="text-dim" icon="book" /> Library
+                                    </Link>
+                                </li>
+                                <hr />
+                                <li>
+                                    <Link to="/library" className="nav-item nav-link text-dim">
+                                        <FontAwesomeIcon className="text-dim" icon="book" /> Songs
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/library" className="nav-item nav-link text-dim">
+                                        <FontAwesomeIcon className="text-dim" icon="book" /> Artists
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/library" className="nav-item nav-link text-dim">
+                                        <FontAwesomeIcon className="text-dim" icon="book" /> Albums
+                                    </Link>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div className="nav-btn">
+                    <div className="w-100">
                         <div className={this.props.user.present ? "d-none" : ""}>
-                            <button className="w-100 btn btn-primary">Sign Up</button>
-                            <button className="w-100 btn btn-secondary">Login</button>
+                            <button className="w-100 mb-2 btn btn-success text-light">Sign Up</button>
+                            <button className="w-100 mb-2 btn btn-secondary text-light">Login</button>
+                            <div className="text-center pb-3">
+                                <Link className="text-muted no-underline" to="/">
+                                    Cookie Policy
+                                </Link>
+                                {" - "}
+                                <Link className="text-muted no-underline" to="/">
+                                    Privacy Policy
+                                </Link>
+                            </div>
                         </div>
-                        <div className={this.props.user.present ? "d-flex" : "d-none"}>
+                        <div className={this.props.user.present ? "" : "d-none"}>
                             <img src={this.props.user.useravatar} alt="User Avatar" width="50px" className="img-fluid" />
                             <div>
-                                <h6 className="text-muted">{this.props.user.username}</h6>
+                                <h6 className="text-dim">{this.props.user.username}</h6>
                                 <p className={this.props.user.premium ? "text-success" : "d-none"}>Premium User</p>
                             </div>
                         </div>
-                        <span>
-                            <a href="/">Cookie Policy</a> | <a href="/">Privacy</a>
-                        </span>
                     </div>
                 </nav>
             </div>
