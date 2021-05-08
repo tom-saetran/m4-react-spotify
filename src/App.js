@@ -36,6 +36,7 @@ class App extends React.Component {
     }
 
     getFromSearch = async query => {
+        this.setState({ search: null })
         let results
         try {
             results = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + query)

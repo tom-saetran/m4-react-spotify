@@ -1,10 +1,6 @@
 import React from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { library } from "@fortawesome/fontawesome-svg-core"
-import { faPlay, faStepForward, faStepBackward, faPause, faSync, faRandom, faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons"
-
-library.add(faPlay, faStepBackward, faStepForward, faPause, faPlay, faSync, faRandom, faVolumeUp, faVolumeMute)
 
 class MediaControl extends React.Component {
     state = {
@@ -34,6 +30,10 @@ class MediaControl extends React.Component {
     }
 
     doPrevTrack = () => {
+        //
+    }
+
+    doSeekTo = () => {
         //
     }
 
@@ -135,7 +135,7 @@ class MediaControl extends React.Component {
                     <div className="col-3">
                         <div className="playerVolume">
                             <FontAwesomeIcon
-                                onMouseOver={e => {
+                                onMouseEnter={e => {
                                     e.currentTarget.classList.replace("text-muted", "text-dim")
                                 }}
                                 onMouseLeave={e => {
