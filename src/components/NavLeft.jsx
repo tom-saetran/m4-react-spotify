@@ -15,6 +15,7 @@ class NavLeft extends React.Component {
 
     componentDidUpdate = (_prevProps, _prevState) => {
         if (_prevState.result !== this.state.result) this.props.setSearch(this.state.result)
+        if (_prevState.query !== this.state.query) this.props.setQuery(this.state.query)
     }
     render() {
         return (

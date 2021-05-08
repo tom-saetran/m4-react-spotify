@@ -4,11 +4,14 @@ import Link from "react-router-dom/Link"
 
 class Home extends React.Component {
     state = {
-        data: null
+        data: null,
+        query: ""
     }
 
+    queries = ["Abba", "Beatles", "Cher", "Dimmu Borgir", "Eminem", "Frank Sinatra", "Gary Moore", "Helloween", "In Flames", "Journey", "Killers"]
+
     componentDidMount = () => {
-        this.setState({ data: this.props.searchResults })
+        this.props.setup(this.queries[Math.floor(Math.random() * this.queries.length)])
     }
 
     componentDidUpdate = (_prevProps, _prevState) => {
@@ -44,7 +47,7 @@ class Home extends React.Component {
                                 <div className="pb-5" />
                             </div>
                         </div>
-                        {this.state.data === null && <FontAwesomeIcon className="w-100 text-muted mt-5" size="5x" icon="sync" spin />}
+                        {this.state.data === null && <FontAwesomeIcon style={{ position: "absolute", top: "33%", left: "60%" }} className="text-muted mt-5" size="5x" icon="sync" spin />}
                     </div>
                 </div>
             </div>

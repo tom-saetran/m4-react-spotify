@@ -32,9 +32,8 @@ class App extends React.Component {
         // set state nowPlaying given the song currently audible(audible/paused)
     }
 
-    setSearch = data => {
-        this.setState({ search: data })
-    }
+    setSearch = data => this.setState({ search: data })
+    setQuery = data => this.setState({ query: data })
 
     getFromSearch = async query => {
         this.setState({ search: null })
@@ -88,9 +87,9 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-                <Route render={routerProps => <NavLeft setSearch={data => this.setSearch(data)} search={query => this.getFromSearch(query)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} user={this.state.user} {...routerProps} />} />
+                <Route render={routerProps => <NavLeft setQuery={query => this.setQuery(query)} setSearch={data => this.setSearch(data)} search={query => this.getFromSearch(query)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} user={this.state.user} {...routerProps} />} />
                 <Switch>
-                    <Route render={routerProps => <Home searchResults={this.state.search} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/" />
+                    <Route render={routerProps => <Home setup={async query => this.setSearch(await this.getFromSearch(query))} searchResults={this.state.search} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/" />
                     <Route render={routerProps => <Artist getData={id => this.getArtistInfoFromID(id)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/artist/:id" />
                     <Route render={routerProps => <Album getData={id => this.getAlbumInfoFromID(id)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/album/:id" />
                     <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/library" />
