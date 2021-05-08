@@ -8,6 +8,7 @@ import Artist from "./components/Artist"
 import Album from "./components/Album"
 import MediaControl from "./components/MediaControl"
 import PageNotFound from "./components/PageNotFound"
+import HTTP501 from "./components/HTTP501"
 
 class App extends React.Component {
     state = {
@@ -72,6 +73,18 @@ class App extends React.Component {
         return await results
     }
 
+    getTrackInfoFromID = async id => {
+        let results
+        try {
+            results = await fetch("https://striveschool-api.herokuapp.com/api/deezer/track/" + id)
+            results = await results.json()
+        } catch (error) {
+            console.error(error)
+            return null
+        }
+        return await results
+    }
+
     render() {
         return (
             <Router>
@@ -80,7 +93,11 @@ class App extends React.Component {
                     <Route render={routerProps => <Home searchResults={this.state.search} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/" />
                     <Route render={routerProps => <Artist getData={id => this.getArtistInfoFromID(id)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/artist/:id" />
                     <Route render={routerProps => <Album getData={id => this.getAlbumInfoFromID(id)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/album/:id" />
-                    <Route render={routerProps => <PageNotFound {...routerProps} />} />
+                    <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/library" />
+                    <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/songs" />
+                    <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/artists" />
+                    <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/albums" />
+                    <Route render={routerProps => <PageNotFound location={this.state.user.username} {...routerProps} />} />
                 </Switch>
 
                 <Route render={routerProps => <MediaControl nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} />

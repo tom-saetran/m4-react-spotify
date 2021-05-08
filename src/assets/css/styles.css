@@ -127,11 +127,6 @@ ul {
     align-items: center;
     margin-top: 26px;
 }
-.playerVolume .fa {
-    opacity: 0.5;
-    color: white;
-    margin-right: 0.5rem;
-}
 .playerVolume input {
     -webkit-appearance: none;
     outline: none;
@@ -151,6 +146,10 @@ ul {
 
 .text-dim {
     color: #979ea3 !important;
+}
+
+.text-critical {
+    color: #fa1808 !important;
 }
 
 .fit-content {

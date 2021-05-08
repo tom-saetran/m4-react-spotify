@@ -43,19 +43,19 @@ class MediaControl extends React.Component {
 
     render() {
         return (
-            <div className="player container-fluid fixed-bottom bg-container pt-1">
-                <div className="row flex-nowrap justify-content-between playBar py-3">
-                    <div className="col-3">
+            <div className="player container-fluid fixed-bottom bg-container">
+                <div className="row justify-content-between playBar">
+                    <div className="col-3 pt-3 px-3 m-auto">
                         <div className="playerArtistInfo d-flex">
                             <img src={this.props.nowPlaying.albumUrl} alt="" width="50px" className="img-fluid" />
                             <div className="d-flex flex-column pl-2">
-                                <h6 className="pl-3">{this.props.nowPlaying.artist}</h6>
-                                <p className="pl-3">{this.props.nowPlaying.song}</p>
+                                <h6 className="px-3 pt-1">{this.props.nowPlaying.artist}</h6>
+                                <p className="px-3 pt-1">{this.props.nowPlaying.song}</p>
                             </div>
                         </div>
                     </div>
-                    <div className="col-6">
-                        <div className="playerControls w-50 d-flex justify-content-between">
+                    <div className="col-6 pt-4">
+                        <div className="playerControls w-50 d-flex justify-content-between mb-2">
                             <FontAwesomeIcon
                                 onMouseEnter={e => {
                                     if (!this.state.shuffle) e.currentTarget.classList.replace("text-muted", "text-dim")
@@ -124,6 +124,7 @@ class MediaControl extends React.Component {
                                 }}
                                 className={this.state.repeat ? "text-light" : "text-muted"}
                                 icon="sync"
+                                spin={this.state.repeat}
                             />
                         </div>
                         <div className="progressContainer d-flex align-items-center">
@@ -136,8 +137,8 @@ class MediaControl extends React.Component {
                             <span className="duration">00:00</span>
                         </div>
                     </div>
-                    <div className="col-3">
-                        <div className="playerVolume">
+                    <div className="col-3 pt-3">
+                        <div className="playerVolume justify-content-center">
                             <FontAwesomeIcon
                                 onMouseEnter={e => {
                                     e.currentTarget.classList.replace("text-muted", "text-dim")
@@ -148,7 +149,7 @@ class MediaControl extends React.Component {
                                 onClick={() => {
                                     this.setState({ muted: !this.state.muted })
                                 }}
-                                className="text-muted"
+                                className="text-muted mx-2"
                                 icon={this.state.muted ? "volume-mute" : "volume-up"}
                             />
                             <input

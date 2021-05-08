@@ -50,17 +50,17 @@ class NavLeft extends React.Component {
                                 </li>
                                 <hr />
                                 <li>
-                                    <Link to="/library" className="nav-item nav-link text-dim">
+                                    <Link to="/songs" className="nav-item nav-link text-dim">
                                         <FontAwesomeIcon className="text-dim" icon="book" /> Songs
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/library" className="nav-item nav-link text-dim">
+                                    <Link to="/artists" className="nav-item nav-link text-dim">
                                         <FontAwesomeIcon className="text-dim" icon="book" /> Artists
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/library" className="nav-item nav-link text-dim">
+                                    <Link to="/albums" className="nav-item nav-link text-dim">
                                         <FontAwesomeIcon className="text-dim" icon="book" /> Albums
                                     </Link>
                                 </li>
@@ -73,11 +73,11 @@ class NavLeft extends React.Component {
                             <button className="w-100 mb-2 btn btn-success text-light">Sign Up</button>
                             <button className="w-100 mb-2 btn btn-secondary text-light">Login</button>
                             <div className="text-center pb-3">
-                                <Link className="text-muted no-underline" to="/">
+                                <Link className="text-muted no-underline" to="/cookiepolicy">
                                     Cookie Policy
                                 </Link>
                                 {" - "}
-                                <Link className="text-muted no-underline" to="/">
+                                <Link className="text-muted no-underline" to="/privacypolicy">
                                     Privacy Policy
                                 </Link>
                             </div>
