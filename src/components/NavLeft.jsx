@@ -7,6 +7,9 @@ class NavLeft extends React.Component {
         result: {}
     }
 
+    componentDidUpdate = (_prevProps, _prevState) => {
+        if (_prevState.result !== this.state.result) this.props.setSearch(this.state.result)
+    }
     render() {
         return (
             <div className="col-2">
