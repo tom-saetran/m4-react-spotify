@@ -3,7 +3,8 @@ import logo from "../assets/images/logo.png"
 
 class NavLeft extends React.Component {
     state = {
-        query: ""
+        query: "",
+        result: {}
     }
 
     render() {
@@ -34,7 +35,7 @@ class NavLeft extends React.Component {
                                         <div className="input-group mt-3">
                                             <input type="text" value={this.state.query} onChange={e => this.setState({ query: e.target.value })} className="form-control mb-2" id="searchField" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" />
                                             <div className="input-group-append" style={{ marginBottom: "4%" }}>
-                                                <button className="btn btn-outline-secondary btn-sm" type="button" id="button-addon1" onClick={() => this.props.search(this.state.query)}>
+                                                <button className="btn btn-outline-secondary btn-sm" type="button" id="button-addon1" onClick={async () => this.setState({ result: await this.props.search(this.state.query) })}>
                                                     GO
                                                 </button>
                                             </div>

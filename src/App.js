@@ -50,7 +50,7 @@ class App extends React.Component {
             console.error(error)
             return null
         }
-        return results
+        return await results
     }
 
     getArtistInfoFromID = async id => {
@@ -62,7 +62,7 @@ class App extends React.Component {
             console.error(error)
             return null
         }
-        return results
+        return await results
     }
 
     getAlbumInfoFromID = async id => {
@@ -74,55 +74,17 @@ class App extends React.Component {
             console.error(error)
             return null
         }
-        return results
+        return await results
     }
 
     render() {
         return (
             <Router>
-                <Route
-                    render={routerProps => (
-                        <NavLeft
-                            search={query => {
-                                this.getFromSearch(query)
-                            }}
-                            nowPlaying={this.state.nowPlaying}
-                            setNowPlaying={id => this.setNowPlaying(id)}
-                            loggedInUser={this.state.user}
-                            {...routerProps}
-                        />
-                    )}
-                />
+                <Route render={routerProps => <NavLeft search={query => this.getFromSearch(query)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} loggedInUser={this.state.user} {...routerProps} />} />
                 <Switch>
                     <Route render={routerProps => <Home nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/" />
-                    <Route
-                        render={routerProps => (
-                            <Artist
-                                getData={id => {
-                                    this.getArtistInfoFromID(id)
-                                }}
-                                nowPlaying={this.state.nowPlaying}
-                                setNowPlaying={id => this.setNowPlaying(id)}
-                                {...routerProps}
-                            />
-                        )}
-                        exact
-                        path="/artist/:id"
-                    />
-                    <Route
-                        render={routerProps => (
-                            <Album
-                                getData={id => {
-                                    this.getAlbumInfoFromID(id)
-                                }}
-                                nowPlaying={this.state.nowPlaying}
-                                setNowPlaying={id => this.setNowPlaying(id)}
-                                {...routerProps}
-                            />
-                        )}
-                        exact
-                        path="/album/:id"
-                    />
+                    <Route render={routerProps => <Artist getData={id => this.getArtistInfoFromID(id)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/artist/:id" />
+                    <Route render={routerProps => <Album getData={id => this.getAlbumInfoFromID(id)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/album/:id" />
                     <Route render={routerProps => <PageNotFound {...routerProps} />} />
                 </Switch>
 
