@@ -34,7 +34,9 @@ class Album extends React.Component {
                                 <h2 className="text-muted p-2">Tracks</h2>
                                 <div id="trackList" className="col-md-10 mb-5">
                                     {this.state.data.tracks.data.map((track, index) => (
-                                        <p className="text-muted">{this.state.data.tracks.data.length < 10 ? index + 1 + " : " + track.title : (index < 9 ? "0" : "") + (index + 1) + " : " + track.title}</p>
+                                        <p key={track.id} className="text-muted">
+                                            {this.state.data.tracks.data.length < 10 ? index + 1 + " : " + track.title : (index < 9 ? "0" : "") + (index + 1) + " : " + track.title}
+                                        </p>
                                     ))}
                                 </div>
                             </div>

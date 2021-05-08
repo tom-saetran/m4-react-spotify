@@ -97,7 +97,7 @@ class App extends React.Component {
                     <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/songs" />
                     <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/artists" />
                     <Route render={routerProps => <HTTP501 {...routerProps} />} exact path="/albums" />
-                    <Route render={routerProps => <PageNotFound location={this.state.user.username} {...routerProps} />} />
+                    <Route render={routerProps => <PageNotFound {...routerProps} />} />
                 </Switch>
 
                 <Route render={routerProps => <MediaControl nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} />
