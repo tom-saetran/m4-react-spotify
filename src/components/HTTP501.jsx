@@ -8,8 +8,8 @@ class HTTP501 extends React.Component {
                 <h2 className="text-dim text-center">
                     The resource at <span className="text-success">{this.props.location.pathname}</span> is not yet implemented.
                 </h2>
-                <h3 className="text-dim text-center">Try again later.</h3>
-                <h4 className="text-dim text-center">Hooray</h4>
+                <h3 className="text-dim text-center">Try again later...</h3>
+                <h4 className="text-dim text-center">Hooray!</h4>
             </div>
         )
     }
