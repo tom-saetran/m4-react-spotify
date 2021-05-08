@@ -16,7 +16,7 @@ class NavLeft extends React.Component {
                 <nav className="navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between" id="sidebar">
                     <div className="nav-container">
                         <a className="navbar-brand" href="index.html">
-                            <img src={logo} alt="Spotify_Logo" width="131" height="40" />
+                            <img src={logo} alt="logo" width="131" height="40" />
                         </a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -50,15 +50,15 @@ class NavLeft extends React.Component {
                     </div>
 
                     <div className="nav-btn">
-                        <div className={this.props.loggedInUser ? "d-none" : ""}>
-                            <button className="btn signup-btn">Sign Up</button>
-                            <button className="btn login-btn">Login</button>
+                        <div className={this.props.user.present ? "d-none" : ""}>
+                            <button className="w-100 btn btn-primary">Sign Up</button>
+                            <button className="w-100 btn btn-secondary">Login</button>
                         </div>
-                        <div className={this.props.loggedInUser ? "d-flex" : "d-none"}>
-                            <img src={this.props.loggedInUser.useravatar} alt="" width="50px" className="img-fluid" />
+                        <div className={this.props.user.present ? "d-flex" : "d-none"}>
+                            <img src={this.props.user.useravatar} alt="User Avatar" width="50px" className="img-fluid" />
                             <div>
-                                <h6 className="text-muted">{this.props.loggedInUser.username}</h6>
-                                <p className={this.props.loggedInUser.premium ? "text-success" : "d-none"}>Premium User</p>
+                                <h6 className="text-muted">{this.props.user.username}</h6>
+                                <p className={this.props.user.premium ? "text-success" : "d-none"}>Premium User</p>
                             </div>
                         </div>
                         <span>

@@ -18,6 +18,7 @@ class App extends React.Component {
             song: "Demo Song Title"
         },
         user: {
+            present: true,
             username: "Tom",
             useravatar: "/images/420.png",
             premium: true
@@ -73,7 +74,7 @@ class App extends React.Component {
     render() {
         return (
             <Router>
-                <Route render={routerProps => <NavLeft setSearch={data => this.setSearch(data)} search={query => this.getFromSearch(query)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} loggedInUser={this.state.user} {...routerProps} />} />
+                <Route render={routerProps => <NavLeft setSearch={data => this.setSearch(data)} search={query => this.getFromSearch(query)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} user={this.state.user} {...routerProps} />} />
                 <Switch>
                     <Route render={routerProps => <Home searchResults={this.state.search} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/" />
                     <Route render={routerProps => <Artist getData={id => this.getArtistInfoFromID(id)} nowPlaying={this.state.nowPlaying} setNowPlaying={id => this.setNowPlaying(id)} {...routerProps} />} exact path="/artist/:id" />
