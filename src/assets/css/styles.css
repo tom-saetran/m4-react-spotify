@@ -1,3 +1,19 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 body {
     background: #1b1b1b;
 }
@@ -142,7 +158,11 @@ ul {
 }
 
 .no-underline {
-    text-decoration: none;
+    text-decoration: none !important;
+}
+
+.scroll-y {
+    overflow-y: scroll !important;
 }
 
 /*MAIN PAGE SECTION*/
