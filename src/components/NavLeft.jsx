@@ -22,7 +22,7 @@ class NavLeft extends React.Component {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div className="navbar-nav">
+                            <div className="navbar-nav pt-3">
                                 <ul>
                                     <li>
                                         <a className="nav-item nav-link" href="index.html">
