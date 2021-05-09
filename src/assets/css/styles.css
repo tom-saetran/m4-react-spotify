@@ -116,7 +116,7 @@ ul {
 .playerVolume {
     display: flex;
     align-items: center;
-    margin-top: 26px;
+    margin-top: 38px;
 }
 .playerVolume input {
     -webkit-appearance: none;
@@ -124,7 +124,8 @@ ul {
     background: transparent;
 }
 .playerVolume input::-webkit-slider-runnable-track {
-    background-color: #979ea3;
+    color: #979ea3;
+    background-color: #414141;
     height: 6px;
     border-radius: 20px;
     overflow: hidden;
@@ -132,7 +133,7 @@ ul {
 .playerVolume input::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 0px;
-    box-shadow: -200px 0 0 200px #14740b;
+    box-shadow: -200px 0 0 200px #979ea3;
 }
 
 .text-dim {
