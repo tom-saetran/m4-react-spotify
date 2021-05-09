@@ -82,21 +82,12 @@ ul {
     max-height: 16px;
 }
 
-.playerControls a:hover {
-    filter: brightness(80%);
-    color: #282828 !important;
-}
-
 .progressContainer {
     color: white;
 }
 
-.progressContainer span {
-    opacity: 0.5;
-}
-
 .progress {
-    color: white;
+    color: #979ea3;
     background-color: #414141;
     height: 6px;
     margin: 0 1rem;
@@ -133,7 +124,7 @@ ul {
     background: transparent;
 }
 .playerVolume input::-webkit-slider-runnable-track {
-    background-color: #414141;
+    background-color: #979ea3;
     height: 6px;
     border-radius: 20px;
     overflow: hidden;
@@ -141,11 +132,19 @@ ul {
 .playerVolume input::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 0px;
-    box-shadow: -200px 0 0 200px #007bff;
+    box-shadow: -200px 0 0 200px #14740b;
 }
 
 .text-dim {
     color: #979ea3 !important;
+}
+
+.link-dim {
+    color: #979ea3 !important;
+}
+
+.link-dim:hover {
+    color: #d0dae0 !important;
 }
 
 .text-critical {
@@ -157,7 +156,7 @@ ul {
 }
 
 .no-underline {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 .scroll-y {

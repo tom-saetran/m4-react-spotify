@@ -1,5 +1,6 @@
 import React from "react"
 import Spinner from "react-bootstrap/Spinner"
+import { Link } from "react-router-dom"
 
 class Album extends React.Component {
     state = {
@@ -18,10 +19,12 @@ class Album extends React.Component {
                         <div id="img-container" className="col-md-3 pt-5 text-center">
                             <img src={this.state.data.cover} className="card-img img-fluid" alt="Album" />
                             <div className="mt-4 text-center">
-                                <p className="album-title">{this.state.data.title}</p>
+                                <h3 className="text-dim">{this.state.data.title}</h3>
                             </div>
                             <div className="text-center">
-                                <p className="artist-name">{this.state.data.artist.name}</p>
+                                <Link className="no-underline" to={"/artist/" + this.state.data.artist.id}>
+                                    <p className="link-dim">{this.state.data.artist.name}</p>
+                                </Link>
                             </div>
                             <div className="mt-4 text-center">
                                 <button id="btnPlay" className="btn btn-success" type="button">
@@ -34,9 +37,11 @@ class Album extends React.Component {
                                 <h2 className="text-muted p-2">Tracks</h2>
                                 <div id="trackList" className="col-md-10 mb-5">
                                     {this.state.data.tracks.data.map((track, index) => (
-                                        <p key={track.id} className="text-muted">
-                                            {this.state.data.tracks.data.length < 10 ? index + 1 + " : " + track.title : (index < 9 ? "0" : "") + (index + 1) + " : " + track.title}
-                                        </p>
+                                        <Link className="no-underline" to={"/track/" + track.id}>
+                                            <p key={track.id} className="link-dim">
+                                                {this.state.data.tracks.data.length < 10 ? index + 1 + " : " + track.title : (index < 9 ? "0" : "") + (index + 1) + " : " + track.title}
+                                            </p>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>

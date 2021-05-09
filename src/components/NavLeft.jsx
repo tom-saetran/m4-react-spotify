@@ -31,7 +31,7 @@ class NavLeft extends React.Component {
                             <ul>
                                 <li>
                                     <div className="input-group">
-                                        <input style={{ borderColor: "#666666", color: "#949494", backgroundColor: "#121212" }} type="text" value={this.state.query} className="form-control" onChange={e => this.setState({ query: e.target.value })} placeholder="Search" />
+                                        <input style={{ borderColor: "#979ea3", color: "#979ea3", backgroundColor: "#121212" }} type="text" value={this.state.query} className="form-control" onChange={e => this.setState({ query: e.target.value })} placeholder="Search" />
                                         <div className="input-group-append">
                                             <button className="btn btn-outline-secondary" type="button" onClick={async () => this.setState({ result: await this.props.search(this.state.query) })}>
                                                 <FontAwesomeIcon className="text-dim" icon="search" />
@@ -74,18 +74,18 @@ class NavLeft extends React.Component {
                             <button className="w-100 mb-2 btn btn-success text-light">Sign Up</button>
                             <button className="w-100 mb-2 btn btn-secondary text-light">Login</button>
                             <div className="text-center pb-3">
-                                <Link className="text-muted no-underline" to="/cookiepolicy">
+                                <Link className="text-dim no-underline" to="/cookiepolicy">
                                     Cookie Policy
                                 </Link>
                                 {" - "}
-                                <Link className="text-muted no-underline" to="/privacypolicy">
+                                <Link className="text-dim no-underline" to="/privacypolicy">
                                     Privacy Policy
                                 </Link>
                             </div>
                         </div>
-                        <div className={this.props.user.present ? "" : "d-none"}>
-                            <img src={this.props.user.useravatar} alt="User Avatar" width="50px" className="img-fluid" />
-                            <div>
+                        <div className={this.props.user.present ? "d-flex justify-content-between px-4" : "d-none"}>
+                            <img src={this.props.user.useravatar} alt="User Avatar" width="64px" height="64px" className="rounded-circle" />
+                            <div className="">
                                 <h6 className="text-dim">{this.props.user.username}</h6>
                                 <p className={this.props.user.premium ? "text-success" : "d-none"}>Premium User</p>
                             </div>

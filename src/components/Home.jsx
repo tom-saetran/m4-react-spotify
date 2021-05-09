@@ -24,7 +24,7 @@ class Home extends React.Component {
                 <div className="row justify-content-center">
                     <div className="col-10">
                         <div style={{ display: this.state.data === null ? "none" : "" }}>
-                            <h2 className="text-center text-muted pt-3">Search Results</h2>
+                            <h2 className="text-center text-dim pt-3">Search Results</h2>
                             {this.state.data !== null && this.state.data.data.length === 0 && <p className="text-center text-dim">No results</p>}
                             <div className="row py-5">
                                 {this.state.data !== null &&
@@ -36,18 +36,22 @@ class Home extends React.Component {
                                             <Link className="text-dim no-underline" to={"/artist/" + result.artist.id}>
                                                 <h4 className="fit-content m-0">{result.artist.name}</h4>
                                             </Link>
-                                            <h6 className="fit-content m-0">
-                                                <small>{result.album.title}</small>
-                                            </h6>
-                                            <p className="fit-content m-0">
-                                                <small>{result.title}</small>
-                                            </p>
+                                            <Link className="text-dim no-underline" to={"/album/" + result.album.id}>
+                                                <h6 className="fit-content m-0">
+                                                    <small>{result.album.title}</small>
+                                                </h6>
+                                            </Link>
+                                            <Link className="text-dim no-underline" to={"/track/" + result.id}>
+                                                <p className="fit-content m-0">
+                                                    <small>{result.title}</small>
+                                                </p>
+                                            </Link>
                                         </div>
                                     ))}
                                 <div className="pb-5" />
                             </div>
                         </div>
-                        {this.state.data === null && <FontAwesomeIcon style={{ position: "absolute", top: "33%", left: "60%" }} className="text-muted mt-5" size="5x" icon="sync" spin />}
+                        {this.state.data === null && <FontAwesomeIcon style={{ position: "absolute", top: "33%", left: "60%" }} className="text-dim mt-5" size="5x" icon="sync" spin />}
                     </div>
                 </div>
             </div>
